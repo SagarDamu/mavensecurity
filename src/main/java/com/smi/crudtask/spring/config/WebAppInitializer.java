@@ -1,5 +1,6 @@
 package com.smi.crudtask.spring.config;
 
+import org.springframework.context.annotation.Import;
 import org.springframework.web.servlet.support.AbstractAnnotationConfigDispatcherServletInitializer;
 
 public class WebAppInitializer extends AbstractAnnotationConfigDispatcherServletInitializer {

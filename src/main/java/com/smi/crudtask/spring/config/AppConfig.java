@@ -19,14 +19,17 @@ import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.ComponentScan;
 import org.springframework.context.annotation.ComponentScans;
 import org.springframework.context.annotation.Configuration;
+import org.springframework.context.annotation.Import;
 import org.springframework.context.annotation.PropertySource;
 import org.springframework.core.env.Environment;
 import org.springframework.orm.hibernate5.HibernateTransactionManager;
 import org.springframework.orm.hibernate5.LocalSessionFactoryBean;
-import org.springframework.security.config.annotation.web.configuration.EnableWebSecurity;
+import org.springframework.security.crypto.password.NoOpPasswordEncoder;
+import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.transaction.annotation.EnableTransactionManagement;
 
 @Configuration
+@Import(SecurityConfig.class)
 @PropertySource("classpath:db.properties")
 @EnableTransactionManagement
 @ComponentScans(value = { @ComponentScan("com.smi.crudtask.spring.dao"),
@@ -67,4 +70,9 @@ public class AppConfig {
 	      transactionManager.setSessionFactory(getSessionFactory().getObject());
 	      return transactionManager;
 	   }
+	
+	@Bean
+	public PasswordEncoder getPasswordEncoder() {
+		return NoOpPasswordEncoder.getInstance();
+	}
 }

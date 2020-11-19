@@ -1,4 +1,5 @@
 com\smi\crudtask\spring\service\EmployeeService.class
+com\smi\crudtask\spring\config\SecurityConfig.class
 com\smi\crudtask\spring\dao\EmployeeDaoImplementation.class
 com\smi\crudtask\spring\config\AppConfig.class
 com\smi\crudtask\spring\config\SecurityInitializer.class
