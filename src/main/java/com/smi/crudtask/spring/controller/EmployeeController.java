@@ -14,14 +14,13 @@ import org.springframework.web.bind.annotation.RestController;
 import com.smi.crudtask.spring.model.Employee;
 import com.smi.crudtask.spring.service.EmployeeService;
 
-@CrossOrigin ("*")
 @RestController
 public class EmployeeController {
 
 	@Autowired
 	private EmployeeService employeeService;
 	
-	@GetMapping("/springsecurity")
+	@GetMapping("/")
 	public String greetings() {
 		return "Working";
 	}
@@ -54,7 +53,6 @@ public class EmployeeController {
 	public ResponseEntity<?> delete(@PathVariable("id") int id){
 		employeeService.deleteEmployeeRecord(id);
 		return ResponseEntity.ok().body("Employee Record has been deleted");
-		
 	}
 
 }
